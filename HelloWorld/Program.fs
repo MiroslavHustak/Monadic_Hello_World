@@ -29,3 +29,39 @@ let rec interpret clp =
                               interpret (cont ())
 
 cmdBuilder { return! Free (HelloWorld (fun () -> Pure ())) } |> interpret
+
+(*
+
+//Haskell
+
+main :: IO ()
+main = putStrLn "Hello, World!" >>= \_ -> return ()
+
+main :: IO ()
+main = putStrLn "Hello, World!" >> return ()
+
+main :: IO ()
+main = do
+    putStrLn "Hello, World!"
+
+main :: IO ()
+main = putStrLn "Hello, World!"
+
+
+//**********************
+
+//F# CE
+
+let private (>>=) x f = f x 
+
+type IO = IO with    
+    member _.Bind(x, f) = (>>=) x f
+    member _.Return x = x
+
+let testingIO () = 
+    IO 
+        {   
+            return! "Hello, World!"
+        }
+
+*)
