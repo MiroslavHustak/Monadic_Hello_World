@@ -1,15 +1,12 @@
 ﻿open System.IO
 
-type CommandLineInstruction<'a> =
-    | HelloWorld of (unit -> 'a) 
+type CommandLineInstruction<'a> = HelloWorld of (unit -> 'a) 
 
 type CommandLineProgram<'a> =
     | Pure of 'a 
     | Free of CommandLineInstruction<CommandLineProgram<'a>>
 
-let private mapI f = 
-    function
-    | HelloWorld cont -> HelloWorld (fun () -> f (cont ()))   
+let private mapI f =  function  HelloWorld cont -> HelloWorld (fun () -> f (cont ()))   
 
 let rec private bind f = 
     function
@@ -31,8 +28,4 @@ let rec interpret clp =
                               printfn "Hello World!"
                               interpret (cont ())
 
-cmdBuilder
-    {
-        return! Free (HelloWorld (fun () -> Pure ()))
-    }
-|> interpret
+cmdBuilder { return! Free (HelloWorld (fun () -> Pure ())) } |> interpret
