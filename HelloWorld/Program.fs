@@ -11,7 +11,7 @@ let private mapI f = function HelloWorld cont -> HelloWorld (fun () -> f (cont (
 let rec private bind f = 
     function
     | Free instr -> mapI (bind f) instr |> Free
-    | Pure x -> f x
+    | Pure x     -> f x
 
 type CommandLineProgramBuilder() =
     member _.Bind(p, f) = bind f p
