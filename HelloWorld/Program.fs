@@ -13,12 +13,12 @@ let rec private bind f =
     | Free instr -> mapI (bind f) instr |> Free
     | Pure x     -> f x
 
-type CommandLineProgramBuilder() =
+type CommandLineProgramBuilder = CommandLineProgramBuilder with
     member _.Bind(p, f) = bind f p
     member _.Return x = Pure x
     member _.ReturnFrom p = p
 
-let private cmdBuilder = CommandLineProgramBuilder()
+let private cmdBuilder = CommandLineProgramBuilder
        
 let rec interpret clp =
     match clp with 
