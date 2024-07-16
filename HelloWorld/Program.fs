@@ -6,7 +6,7 @@ type CommandLineProgram<'a> =
     | Pure of 'a 
     | Free of CommandLineInstruction<CommandLineProgram<'a>>
 
-let private mapI f =  function  HelloWorld cont -> HelloWorld (fun () -> f (cont ()))   
+let private mapI f = function HelloWorld cont -> HelloWorld (fun () -> f (cont ()))   
 
 let rec private bind f = 
     function
@@ -59,9 +59,6 @@ type IO = IO with
     member _.Return x = x
 
 let testingIO () = 
-    IO 
-        {   
-            return! "Hello, World!"
-        }
+    IO { return! printfn "Hello, World!" }
 
 *)
