@@ -32,18 +32,24 @@ cmdBuilder { return! Free (HelloWorld (fun () -> Pure ())) } |> interpret
 
 (*
 
-//Haskell
+//Malbolge
+(=&%:/-!#!!|
 
+//Haskell "Hello, World!" development
+//First..
 main :: IO ()
 main = putStrLn "Hello, World!" >>= \_ -> return ()
 
+//Then...
 main :: IO ()
 main = putStrLn "Hello, World!" >> return ()
 
+//Then ...
 main :: IO ()
 main = do
     putStrLn "Hello, World!"
 
+//...and now
 main :: IO ()
 main = putStrLn "Hello, World!"
 
