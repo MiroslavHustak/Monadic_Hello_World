@@ -30,41 +30,41 @@ let rec interpret clp =
 
 cmdBuilder { return! Free (HelloWorld (fun () -> Pure ())) } |> interpret
 
-(*
-
-//Malbolge
-(=<`#9]~6ZY32Vx/4Rs+0No-&Jk)"Fh}|Bcy?`=*z]Kw%oG4UUS0/@-ejc(:'8dc.
-
-//Haskell "Hello, World!" development
-//First..
-main :: IO ()
-main = putStrLn "Hello, World!" >>= \_ -> return ()
-
-//Then...
-main :: IO ()
-main = putStrLn "Hello, World!" >> return ()
-
-//Then ...
-main :: IO ()
-main = do
-    putStrLn "Hello, World!"
-
-//...and now
-main :: IO ()
-main = putStrLn "Hello, World!"
 
 
-//**********************
+    //Malbolge
+    //(=<`#9]~6ZY32Vx/4Rs+0No-&Jk)"Fh}|Bcy?`=*z]Kw%oG4UUS0/@-ejc(:'8dc.
 
-//F# CE
+    //Haskell "Hello, World!" development
+    //First..
+    //main :: IO ()
+    //main = putStrLn "Hello, World!" >>= \_ -> return ()
 
-let private (>>=) x f = f x 
+    //Then...
+    //main :: IO ()
+    //main = putStrLn "Hello, World!" >> return ()
 
-type IO = IO with    
-    member _.Bind(x, f) = (>>=) x f
-    member _.Return x = x
+    //Then ...
+    //main :: IO ()
+    //main = do
+       // putStrLn "Hello, World!"
 
-let testingIO () = 
-    IO { return! printfn "Hello, World!" }
+    //...and now
+    //main :: IO ()
+   // main = putStrLn "Hello, World!"
 
-*)
+
+    //**********************
+
+    //F# CE
+
+    //let private (>>=) x f = f x 
+
+    //type IO = IO with    
+        //member _.Bind(x, f) = (>>=) x f
+       // member _.Return x = x
+
+    //let testingIO () = 
+        //IO { return! printfn "Hello, World!" }
+
+
