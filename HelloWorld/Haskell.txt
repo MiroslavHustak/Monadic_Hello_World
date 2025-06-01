@@ -1,0 +1,32 @@
+﻿ 
+    //Haskell "Hello, World!" development
+
+    //First..
+    //main :: IO ()
+    //main = putStrLn "Hello, World!" >>= \_ -> return ()
+
+    //Then...
+    //main :: IO ()
+    //main = putStrLn "Hello, World!" >> return ()
+
+    //Then ...
+    //main :: IO ()
+    //main = do putStrLn "Hello, World!"
+
+    //...and now
+    //main :: IO ()
+   // main = putStrLn "Hello, World!"
+
+
+    //**********************
+
+    //F# CE
+
+    //let private (>>=) x f = f x 
+
+    //type IO = IO with    
+        //member _.Bind(x, f) = (>>=) x f
+       // member _.Return x = x
+
+    //let testingIO () = 
+        //IO { return! printfn "Hello, World!" }

@@ -6,7 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Haskell.txt" />
+    <Content Include="EducationalCode.txt" />
     <Compile Include="Program.fs" />
   </ItemGroup>
+
+  <ItemGroup />
 
 </Project>
