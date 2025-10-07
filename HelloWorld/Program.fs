@@ -31,6 +31,8 @@ let rec private interpretCPS (cont: 'a -> 'b) (clp: CommandLineProgram<'a>) : 'b
         cont x
     | Free (HelloWorld next) 
         ->
+        StateMonad.StateMonad.stateMonadExample ()
+        StateMonad.StateMonad.nonStateMonadExample ()
         printfn "Hello World!"
         interpretCPS <| cont <| next ()
 

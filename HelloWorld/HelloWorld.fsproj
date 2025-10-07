@@ -6,11 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="StateMonad.fs" />
     <Content Include="Haskell.txt" />
     <Content Include="EducationalCode.txt" />
     <Compile Include="Program.fs" />
   </ItemGroup>
-
-  <ItemGroup />
 
 </Project>
