@@ -1,4 +1,5 @@
 ﻿open System.IO
+open StateMonad.Haskell_IO
 
 type private CommandLineInstruction<'a> = HelloWorld of (unit -> 'a)
 
@@ -37,3 +38,5 @@ let rec private interpretCPS (cont: 'a -> 'b) (clp: CommandLineProgram<'a>) : 'b
         interpretCPS <| cont <| next ()
 
 cmdBuilder { return! Free (HelloWorld (fun () -> Pure ())) } |> interpretCPS id
+
+runIO program
